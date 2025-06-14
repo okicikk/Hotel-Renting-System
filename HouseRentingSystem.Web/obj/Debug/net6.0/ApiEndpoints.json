@@ -1,0 +1,22 @@
+[
+  {
+    "ContainingType": "HouseRentingSystem.Web.Controllers.Api.StatisticsApiController",
+    "Method": "GetStatistics",
+    "RelativePath": "api/statistics",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "HouseRentingSystem.Services.Statistics.Models.StatisticsServiceModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
