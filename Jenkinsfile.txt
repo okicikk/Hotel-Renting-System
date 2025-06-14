@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    environment {
+        DOTNET_CLI_HOME = "/tmp"
+    }
+    stages {
+        stage('Restore') {
+            steps {
+                sh 'dotnet restore'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'dotnet build --no-restore --configuration Release'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'dotnet test --no-build --no-restore --configuration Release'
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
