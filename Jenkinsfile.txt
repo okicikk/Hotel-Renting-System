@@ -1,22 +1,22 @@
 pipeline {
     agent any
     environment {
-        DOTNET_CLI_HOME = "/tmp"
+        DOTNET_CLI_HOME = "${env.TEMP}"  // Use Windows temp directory
     }
     stages {
         stage('Restore') {
             steps {
-                sh 'dotnet restore'
+                bat 'dotnet restore'
             }
         }
         stage('Build') {
             steps {
-                sh 'dotnet build --no-restore --configuration Release'
+                bat 'dotnet build --no-restore --configuration Release'
             }
         }
         stage('Test') {
             steps {
-                sh 'dotnet test --no-build --no-restore --configuration Release'
+                bat 'dotnet test --no-build --no-restore --configuration Release'
             }
         }
     }
